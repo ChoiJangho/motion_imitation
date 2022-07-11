@@ -495,6 +495,10 @@ class SimpleRobot(object):
     return self.TransformAngularVelocityToLocalFrame(angular_velocity,
                                                      orientation)
                               
+  def GetTrueBasePosition(self):
+    base_position, base_orientation = self.pybullet_client.getBasePositionAndOrientation(self.quadruped)
+    return base_position
+    
   def GetFootContacts(self):
     all_contacts = self.pybullet_client.getContactPoints(bodyA=self.quadruped)
 
